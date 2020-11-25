@@ -65,11 +65,6 @@ const routes = [
 		component: About,
 	},
 	{
-		path: "/card",
-		name: "CardV",
-		component: CardV,
-	},
-	{
 		path: "/formulario",
 		name: "FormularioV",
 		component: FormularioV,
