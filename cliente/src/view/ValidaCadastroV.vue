@@ -6,7 +6,7 @@
 				flat
 				color="blue"
 				class="pl-7 pt-3 pb-2 mb-1"
-				v-for="(cadastro, index) in cadastros"
+				v-for="(cadastro) in cadastros"
 				:key="cadastro.id"
 			>
 				<v-layout row wrap>

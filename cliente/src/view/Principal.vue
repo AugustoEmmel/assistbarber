@@ -16,7 +16,6 @@
 
 <script>
 //teste
-import db, { dbAuth, GeoPoint } from "../components/FirebaseInit";
 import { gmapApi } from "vue2-google-maps";
 import { Agendamento } from "../view/Agendamento";
 

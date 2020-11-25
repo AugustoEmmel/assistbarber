@@ -24,7 +24,7 @@
 <script>
 //teste
 export default {
-	name: "login2",
+	name: "loginv2",
 	data() {},
 };
 </script>
