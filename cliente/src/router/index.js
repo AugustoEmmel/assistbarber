@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Principal from "../view/Principal";
 import AgendaV from "../view/AgendaV";
 import LoginV from "../view/LoginV";
+import LoginV2 from "../view/LoginV2";
 import HistoricoV from "../view/HistoricoV";
 import RelatorioV from "../view/RelatorioV";
 import About from "../view/About";
@@ -12,6 +13,8 @@ import AvisoV from "../view/AvisoV";
 import EdPerfilV from "../view/EdPerfilV";
 import PerfilV from "../view/PerfilV";
 import ValidaCadastroV from "../view/ValidaCadastroV";
+import ChatV from "../view/ChatV";
+import CadastroV from "../view/CadastroV";
 
 Vue.use(VueRouter);
 
@@ -22,32 +25,37 @@ const routes = [
 		component: Principal,
 	},
 	{
-		path: "/perfilv",
+		path: "/perfil",
 		name: "PerfilV",
 		component: PerfilV,
 	},
 	{
-		path: "/edperfilv",
+		path: "/edperfil",
 		name: "EdPerfilV",
 		component: EdPerfilV,
 	},
 	{
-		path: "/agendav",
+		path: "/agenda",
 		name: "AgendaV",
 		component: AgendaV,
 	},
 	{
-		path: "/loginv",
+		path: "/login",
 		name: "LoginV",
 		component: LoginV,
 	},
 	{
-		path: "/historicov",
+		path: "/loginv2",
+		name: "LoginV2",
+		component: LoginV2,
+	},
+	{
+		path: "/historico",
 		name: "HistoricoV",
 		component: HistoricoV,
 	},
 	{
-		path: "/relatoriov",
+		path: "/relatorio",
 		name: "RelatorioV",
 		component: RelatorioV,
 	},
@@ -57,24 +65,34 @@ const routes = [
 		component: About,
 	},
 	{
-		path: "/cardv",
+		path: "/card",
 		name: "CardV",
 		component: CardV,
 	},
 	{
-		path: "/formulariov",
+		path: "/formulario",
 		name: "FormularioV",
 		component: FormularioV,
 	},
 	{
-		path: "/avisov",
+		path: "/aviso",
 		name: "AvisoV",
 		component: AvisoV,
 	},
 	{
-		path: "/validacadastrov",
+		path: "/validacadastro",
 		name: "ValidaCadastroV",
 		component: ValidaCadastroV,
+	},
+	{
+		path: "/chat",
+		name: "ChatV",
+		component: ChatV,
+	},
+	{
+		path: "/cadastro",
+		name: "CadastroV",
+		component: CadastroV,
 	}
 ];
 

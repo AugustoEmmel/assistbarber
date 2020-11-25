@@ -2,6 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
+import "./components/FirebaseInit";
+import firebase from "firebase/app";
 import * as VueGoogleMaps from "vue2-google-maps";
 import { firestorePlugin } from "vuefire";
 import ArrayList from "arraylist";

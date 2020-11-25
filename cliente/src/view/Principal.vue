@@ -1,16 +1,21 @@
 <template>
-<div class="Principal">
-    <v-container>
-        <section ref="map" class="Principal"></section>
-        <br />
-        <GmapMap ref="map" class="mapa mt-n9 mb-n8" :center="coordenadas" :zoom="19" style="width: 100%; height: 470px">
-            <GmapMarker ref="myMarker" :position="coordenadas" />
-        </GmapMap>
-    </v-container>
-</div>
+	<v-container class="pa-0 ma-0">
+		<section ref="map" class="Principal"></section>
+		<br />
+		<GmapMap
+			ref="map"
+			class="mapa mt-n9 mb-n8"
+			:center="coordenadas"
+			:zoom="19"
+			style="height: 100vh; width: 100vw"
+		>
+			<GmapMarker ref="myMarker" :position="coordenadas" />
+		</GmapMap>
+	</v-container>
 </template>
 
 <script>
+//teste
 import db, { dbAuth, GeoPoint } from "../components/FirebaseInit";
 import { gmapApi } from "vue2-google-maps";
 import { Agendamento } from "../view/Agendamento";
@@ -51,18 +56,12 @@ export default {
 					{
 						localizacao: new GeoPoint(lat, lng),
 					},
-					{ merge: true }
+					{
+						merge: true,
+					}
 				);
 		},
 		getPerfil() {},
 	},
 };
-
 </script>
-
-<style scoped>
-.mapa {
-    margin: auto;
-    border-radius: 50px;
-}
-</style>

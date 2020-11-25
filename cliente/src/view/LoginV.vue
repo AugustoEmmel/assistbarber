@@ -25,12 +25,11 @@
 </template>
 
 <script>
+//teste
 export default {
-    name: 'login',
-    data(){ 
-        return {
-
-        }
-    },
-}
+	name: "login",
+	data() {
+		return {};
+	},
+};
 </script>
