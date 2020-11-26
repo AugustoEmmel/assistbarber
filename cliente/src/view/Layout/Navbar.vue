@@ -107,22 +107,22 @@ export default {
 				{
 					icon: "mdi-account-edit",
 					text: "Perfil",
-					route: "/edperfilv",
+					route: "/edperfil",
 				},
 				{
 					icon: "mdi-folder",
 					text: "Agenda",
-					route: "/agendav",
+					route: "/agenda",
 				},
 				{
 					icon: "mdi-chart-bar",
 					text: "Relatórios",
-					route: "/relatoriov",
+					route: "/relatorio",
 				},
 				{
 					icon: "mdi-history",
 					text: "Histórico",
-					route: "/historicov",
+					route: "/historico",
 				},
 				{
 					icon: "mdi-bell-ring",
@@ -137,7 +137,7 @@ export default {
 				{
 					icon: "mdi-account-check",
 					text: "Validar Cadastro",
-					route: "/validacadastrov",
+					route: "/validacadastro",
 				},
 			],
 		};
