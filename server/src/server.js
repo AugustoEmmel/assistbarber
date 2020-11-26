@@ -4,7 +4,7 @@ const express = require('express');
 
 // Parse variáveis env
 require('dotenv').config();
-require("./helpers/db/mongodb.js")();
+require("./helpers/mongodb.js")();
 
 // Configurando portas
 const port = process.env.PORT || 9000;
