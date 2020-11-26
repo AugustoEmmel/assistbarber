@@ -1,4 +1,4 @@
-const Servico = require('../models/servico');
+import { create } from '../models/servico';
 
 const trataErros = (err) =>{
     let errors = {nome:'', descricao:'', preco:''};
@@ -20,7 +20,7 @@ const getServico = (req, res) =>{}
 const setServico = (req, res) =>{
     const {nome, descricao, preco} = req.body;
   try{
-    const servico = await Servico.create({nome, descricao, preco});
+    const servico = await create({nome, descricao, preco});
     res.status(201).json(servico);
   }catch(err){
     const errors = trataErros(err);
@@ -30,9 +30,11 @@ const setServico = (req, res) =>{
 //atualiza um servico
 const updateServico = (req, res) =>{}
 
-module.exports = {
-    getServicos,
-    getServico,
-    setServico,
-    updateServico
-}
+const _default = {
+  getServicos,
+  getServico,
+  setServico,
+  updateServico
+};
+
+export { _default as default };

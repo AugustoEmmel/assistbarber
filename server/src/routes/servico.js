@@ -1,4 +1,5 @@
-const { Router } = require('express');
+//Importa router express
+import { Router } from 'express';
 const {
     getServicos,
     getServico,
@@ -11,4 +12,4 @@ const router = Router();
 router.get('/servicos', ()=>{});
 router.post('/servicos', setServico);
 
-module.exports = router;
+export default router;

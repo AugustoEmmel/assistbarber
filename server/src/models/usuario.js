@@ -1,7 +1,14 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-const {isEmail} = require('validator');
-const bcrypt = require('bcrypt');
+import {isEmail} from "validator";
+import bcrypt from "bcrypt";
+import {cpf} from "cpf-cnpj-validator";
+const cargos = {
+    Admin: "admin",
+    Barbeiro: "barbeiro",
+    Cliente: "cliente"
+}
+
 
 const usuarioSchema = new Schema({
     nome:{
@@ -19,6 +26,11 @@ const usuarioSchema = new Schema({
         required: [true, 'Por favor entre uma senha.'],
         minlength: [6, 'Senha curta, entre pelo menos 6 caracteres.']
     },
+    cpf:{
+        type: String,
+        required: usuarioBarbeiro,
+        validate: [cpf.isValid, 'Por favor entre com um CPF válido.']
+    },
     telefone:{
         type: String,
         required: [true, 'Por favor entre um numero telefônico.'],
@@ -27,11 +39,20 @@ const usuarioSchema = new Schema({
     localizacao:{
         type: String
     },
-    barbeiro: {
-        type: Boolean,
+    cargo: {
+        type: String,
         required: true
     }
 }, {timestamps: true});
+
+//Verifica se é barbeiro para habilitar CPF
+function usuarioBarbeiro(){
+    if(this.cargo === cargos.Barbeiro){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 //crypt da senha
 usuarioSchema.pre('save', async function(next){
@@ -41,4 +62,4 @@ usuarioSchema.pre('save', async function(next){
 });
 
 const Usuario = mongoose.model('Usuario', usuarioSchema);
-module.exports = Usuario;
+exports.default = Usuario;
