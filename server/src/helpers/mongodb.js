@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-
+import mongoose from "mongoose";
+const url_db = "mongodb+srv://Augusto:ZVPkalszFsH9mZHR@assistbarber.mwqms.mongodb.net/assistbarber?retryWrites=true";
 const init = () => {
   mongoose
-    .connect(process.env.DB_URL, {
+    .connect(url_db, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex:true
@@ -19,4 +19,4 @@ const init = () => {
 
 mongoose.Promise = global.Promise;
 
-module.exports = init;
+exports.default = init();
