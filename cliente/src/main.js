@@ -6,11 +6,9 @@ import * as VueGoogleMaps from "vue2-google-maps";
 import ArrayList from "arraylist";
 import VueGeolocation from "vue-browser-geolocation"
 
-Vue.component("google-login", GoogleLogin);
 Vue.config.productionTip = false;
 
 Vue.use(VueGeolocation);
-Vue.use(firestorePlugin);
 Vue.use(ArrayList);
 Vue.use(VueGoogleMaps, {
 	load: {
@@ -22,12 +20,11 @@ Vue.use(VueGoogleMaps, {
 
 let app;
 /* eslint-disable */
-firebase.auth().onAuthStateChanged((user) => {
 	if (!app)
 		new Vue({
 			router,
 			vuetify,
 			render: (h) => h(App),
 		}).$mount("#app");
-});
+
 /* eslint-enable */

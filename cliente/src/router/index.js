@@ -2,12 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Principal from "../view/Principal";
 import AgendaV from "../view/AgendaV";
-import LoginV from "../view/LoginV";
 import LoginV2 from "../view/LoginV2";
 import HistoricoV from "../view/HistoricoV";
 import RelatorioV from "../view/RelatorioV";
 import About from "../view/About";
-import CardV from "../view/CardV";
 import FormularioV from "../view/FormularioV";
 import AvisoV from "../view/AvisoV";
 import EdPerfilV from "../view/EdPerfilV";
@@ -41,11 +39,6 @@ const routes = [
 	},
 	{
 		path: "/login",
-		name: "LoginV",
-		component: LoginV,
-	},
-	{
-		path: "/loginv2",
 		name: "LoginV2",
 		component: LoginV2,
 	},
