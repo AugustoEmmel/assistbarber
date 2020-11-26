@@ -1,8 +1,8 @@
 <template>
 	<v-dialog v-model="dialog" max-width="800" persistent>
 		<template v-slot:activator="{ on, attrs }">
-			<v-btn color="error" class="mt-1 ml-5" v-bind="attrs" v-on="on" small
-				>Remover Serviços</v-btn
+			<v-btn color="error" class="mt-1 ml-3 " v-bind="attrs" v-on="on" small
+				>Remover</v-btn
 			>
 		</template>
 		<v-card>
