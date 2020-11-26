@@ -90,9 +90,6 @@
 </template>
 
 <script>
-//teste
-import db, { dbAuth } from "../../components/FirebaseInit";
-
 export default {
 	data() {
 		return {

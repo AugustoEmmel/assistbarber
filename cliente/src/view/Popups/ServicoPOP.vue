@@ -2,7 +2,7 @@
 	<v-dialog v-model="dialog" max-width="800" persistent>
 		<template v-slot:activator="{ on, attrs }">
 			<v-btn color="success" class="mt-1" v-bind="attrs" v-on="on" small
-				>Inserir Serviços</v-btn
+				>Inserir</v-btn
 			>
 		</template>
 		<v-card>
