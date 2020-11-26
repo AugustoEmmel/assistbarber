@@ -2,7 +2,7 @@
 import cors from "cors"; //cors
 import express from "express"; //Express
 import auth from "./routes/auth.js"; //Autenticacao
-import db from "./helpers/mongodb.js"; //Banco de dados
+import db from "./helpers/db/mongodb.js"; //Banco de dados
 
 // Inicializando Banco de Dados
 db;
@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Defininindo rotas para middleware
-app.use('/routes/auth',auth);
+app.use('/routes/auth.js', auth);
 // Escutando Portas
 app.listen(port);
 console.log(`Escutando em http://localhost:${port}/`);

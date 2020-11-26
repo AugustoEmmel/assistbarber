@@ -1,6 +1,6 @@
 'use strict';
 
-const Usuario = require('../models/usuario');
+import { create } from '../models/usuario';
 
 const trataErros = (err) =>{
   let errors = {email:'', senha:'', telefone:''};
@@ -25,7 +25,7 @@ const trataErros = (err) =>{
 const cadastroPost = async (req, res) =>{
   const {nome, email, senha, telefone, barbeiro, localizacao} = req.body;
   try{
-    const usuario = await Usuario.create({nome, email, senha, telefone, localizacao, barbeiro});
+    const usuario = await create({nome, email, senha, telefone, localizacao, barbeiro});
     res.status(201).json(usuario);
   }catch(err){
     const errors = trataErros(err);
@@ -38,7 +38,7 @@ const loginPost = async (req, res) =>{
   res.send('login');
 }
 
-module.exports = {
+export default {
   loginPost,
   cadastroPost
 };
