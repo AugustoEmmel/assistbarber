@@ -54,7 +54,7 @@
 
 <script>
 //teste
-import db from "../components/FirebaseInit";
+
 export default {
 	data() {
 		return {
@@ -62,77 +62,6 @@ export default {
 			loading: true,
 			cadastros: [],
 		};
-	},
-	computed: {},
-	methods: {
-		deletaFormulario(id) {
-			db.collection("formularios")
-				.doc(id)
-				.delete();
-		},
-		//Pega Formulario, insere no banco como usuario
-		aceitarFormulario(id) {
-			let docFormularios = db.collection("formularios");
-			let getDoc = docFormularios
-				.doc(id)
-				.get()
-				.then((doc) => {
-					if (!doc.exists) {
-						console.log("Não existe esse documento!");
-					} else {
-						db.collection("usuarios")
-							.doc(id)
-							.set({
-								nome: doc.data().nome,
-								email: doc.data().email,
-							});
-					}
-					this.deletaFormulario(id);
-				})
-				.catch((error) => {
-					console.log("Erro ao pegar documento: ", error);
-				});
-		},
-		//Recusa o cadastro do barbeiro como usuario
-		recusarFormulario() {
-			this.deletaFormulario(id);
-		},
-	},
-	created() {
-		//Busca lista de formularios para
-		/*db.collection('formularios')
-        .orderBy('nome')
-        .onSnapshot(snpashot =>{
-            let changes = snpashot.docChanges();
-            changes.forEach(change =>{
-                if(change.type == 'added'){
-                    const data = {
-                    nome: doc.data().nome,
-                    cpf: doc.data().cpf,
-                    email: doc.data().email,
-                    id: doc.id
-                    };
-                    this.cadastros.push(data);
-                } else if (change.type == 'removed'){
-                    
-                }
-            })
-        })*/
-
-		db.collection("formularios")
-			.get()
-			.then((querySnapshot) => {
-				this.loading = false;
-				querySnapshot.forEach((doc) => {
-					const data = {
-						nome: doc.data().nome,
-						cpf: doc.data().cpf,
-						email: doc.data().email,
-						id: doc.id,
-					};
-					this.cadastros.push(data);
-				});
-			});
 	},
 };
 </script>

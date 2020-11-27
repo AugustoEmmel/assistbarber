@@ -49,7 +49,7 @@ Vue.component('CadastroCli', [definition])
 				>
 				</v-text-field>
 
-				<v-btn block color="success" dark>Cadastrar</v-btn>
+				<v-btn block color="success" @click="cadastrar">Cadastrar</v-btn>
 			</v-container>
 		</v-layout>
 	</v-form>
@@ -76,6 +76,9 @@ export default {
 		confirmarSenha(){
 			return this.senha === this.reSenha || "Senha está diferente.";
 		},
+		cadastrar(){
+			
+		}
 	}
 };
 </script>

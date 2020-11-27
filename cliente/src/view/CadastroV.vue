@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import Cliente from "./CadastroCliV.vue";
-import Barbeiro from "./CadastroBarbV.vue";
+import Cliente from "../components/CadastroCliV";
+import Barbeiro from "../components/CadastroBarbV";
 export default {
 	components: {
 		Cliente,
