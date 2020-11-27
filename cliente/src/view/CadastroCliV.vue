@@ -1,9 +1,10 @@
 Vue.component('CadastroCli', [definition])
 <template>
-	<v-form v-model="valid">
+	<v-form>
 		<v-layout row wrap class="pa-3">
 			<v-container>
 				<v-text-field
+					v-model="nome"
 					class="darken-5"
 					clearable
 					label="NOME"
@@ -12,6 +13,7 @@ Vue.component('CadastroCli', [definition])
 				>
 				</v-text-field>
 				<v-text-field
+					v-model="email"
 					class="darken-5"
 					clearable
 					label="E-MAIL"
@@ -20,6 +22,7 @@ Vue.component('CadastroCli', [definition])
 				>
 				</v-text-field>
 				<v-text-field
+					v-model="telefone"
 					class="darken-5"
 					clearable
 					label="TELEFONE"
@@ -28,6 +31,7 @@ Vue.component('CadastroCli', [definition])
 				>
 				</v-text-field>
 				<v-text-field
+					v-model="senha"
 					class="darken-5"
 					clearable
 					label="SENHA"
@@ -36,6 +40,7 @@ Vue.component('CadastroCli', [definition])
 				>
 				</v-text-field>
 				<v-text-field
+					v-model="showReSenha"
 					class="darken-5"
 					clearable
 					label="CONFIRMAR SENHA"
@@ -53,7 +58,24 @@ Vue.component('CadastroCli', [definition])
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			showSenha: false,
+			showReSenha: false,
+			nome:"",
+			email:"",
+			telefone:"",
+			senha:"",
+			reSenha: "",
+			regras: {
+				obrigatorio: value => !!value || "Campo obrigatório.",
+				mininimo: v => v.length >= 8 || "Mínimo de 8 caractéres.",
+			}
+		};
 	},
+	methods: {
+		confirmarSenha(){
+			return this.senha === this.reSenha || "Senha está diferente.";
+		},
+	}
 };
 </script>

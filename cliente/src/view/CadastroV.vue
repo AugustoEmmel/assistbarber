@@ -8,14 +8,14 @@
 				</div>
 			</v-card-title>
 			<v-container mt-n2 mb-n3>
-				<v-radio-group v-model="row" row>
-					<v-radio label="Cliente" value="cliente"></v-radio>
-					<v-radio label="Barbeiro" value="barbeiro"> </v-radio>
+				<v-radio-group v-model="formulario" row>
+					<v-radio label="Cliente" value="Cliente"></v-radio>
+					<v-radio label="Barbeiro" value="Barbeiro"> </v-radio>
 				</v-radio-group>
 			</v-container>
 			<v-divider></v-divider>
 			<v-container>
-				<Barbeiro />
+				<component v-bind:is="formulario"></component>
 			</v-container>
 		</v-card>
 	</v-container>
@@ -30,7 +30,12 @@ export default {
 		Barbeiro,
 	},
 	data() {
-		return {};
+		return {
+			formulario: "Cliente"
+		};
 	},
+	computed(){
+		formulario
+	}
 };
 </script>

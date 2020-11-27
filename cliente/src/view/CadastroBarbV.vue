@@ -45,6 +45,14 @@
 				<v-text-field
 					class="darken-5"
 					clearable
+					label="SENHA"
+					placeholder="Senha"
+					outlined
+				>
+				</v-text-field>
+				<v-text-field
+					class="darken-5"
+					clearable
 					label="CONFIRMAR SENHA"
 					placeholder="Confirmar Senha"
 					outlined

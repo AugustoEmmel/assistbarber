@@ -51,7 +51,7 @@
 				<v-icon class="ml-1">mdi-account-plus</v-icon>
 			</v-btn>
 			<!--sair -->
-			<v-btn small text>
+			<v-btn small text v-show="false">
 				<span>Sair</span>
 				<v-icon>mdi-exit-run</v-icon>
 			</v-btn>
@@ -66,7 +66,7 @@
 					</v-avatar>
 				</v-flex>
 				<!--NOME DO USUARIO -->
-				<p class="white--text subheading mt-2">{{ nomeUsuario }}</p>
+				<p class="white--text subheading mt-2">NomeUsuario</p>
 			</v-layout>
 			<v-list>
 				<v-list-item
@@ -141,22 +141,7 @@ export default {
 	},
 	methods: {
 		//puxa nome usuario do banco
-		getNomeUsuario() {
-			const idUsuario = dbAuth.currentUser.uid;
-			let docUsuarios = db.collection("usuarios").doc(idUsuario);
-			let getDoc = docUsuarios
-				.get()
-				.then((doc) => {
-					if (!doc.exists) {
-						console.log("Não existe esse documento!");
-					} else {
-						this.nomeUsuario = doc.data().nome;
-					}
-				})
-				.catch((error) => {
-					console.log("Erro ao pegar documento: ", error);
-				});
-		},
+		
 	},
 	mounted() {
 		this.getNomeUsuario();
