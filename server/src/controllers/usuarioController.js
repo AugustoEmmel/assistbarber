@@ -1,4 +1,4 @@
-import {create} from '../models/usuario';
+import Usuario from '../models/usuario';
 
 const trataErros = (err) =>{
   let errors = {email:'', senha:'', telefone:''};
@@ -20,10 +20,10 @@ const trataErros = (err) =>{
 }
 
 //Cria o usuário
-const cadastroPost = async (req, res) =>{
-  const {nome, email, senha, telefone, localizacao, cargo} = req.body;
+export const cadastroPost = async (req, res) =>{
+  const {nome, email, senha, cpf, telefone, localizacao, cargo} = req.body;
   try{
-    const usuario = await create({nome, email, senha, telefone, localizacao, cargo});
+    const usuario = await Usuario.create({nome, email, senha, cpf, telefone, localizacao, cargo});
     res.status(201).json(usuario);
   }catch(err){
     const errors = trataErros(err);
@@ -32,11 +32,6 @@ const cadastroPost = async (req, res) =>{
 }
 
 //Submete o login ao banca para comparar
-const loginPost = async (req, res) =>{
+export const loginPost = async (req, res) =>{
   res.send('login');
-}
-
-export default {
-  cadastroPost,
-  loginPost
 }

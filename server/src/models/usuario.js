@@ -25,22 +25,23 @@ const usuarioSchema = new Schema({
         required: [true, 'Por favor entre uma senha.'],
         minlength: [6, 'Senha curta, entre pelo menos 6 caracteres.']
     },
-    /*cpf:{
+    cpf:{
         type: String,
         required: usuarioBarbeiro,
         validate: [cpf.isValid, 'Por favor entre com um CPF válido.']
-    },*/
+    },
     telefone:{
         type: String,
         required: [true, 'Por favor entre um numero telefônico.'],
         unique: true
     },
     localizacao:{
-        type: String
+        type: String,
+        required: usuarioBarbeiro
     },
     cargo: {
         type: String,
-        required: true
+        required: true,
     }
 }, {timestamps: true});
 
