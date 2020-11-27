@@ -1,8 +1,10 @@
+Vue.component('CadastroCli', [definition])
 <template>
-	<v-form v-model="valid">
+	<v-form>
 		<v-layout row wrap class="pa-3">
-			<v-container class="asd">
+			<v-container>
 				<v-text-field
+					v-model="nome"
 					class="darken-5"
 					clearable
 					label="NOME"
@@ -11,6 +13,7 @@
 				>
 				</v-text-field>
 				<v-text-field
+					v-model="email"
 					class="darken-5"
 					clearable
 					label="E-MAIL"
@@ -19,6 +22,7 @@
 				>
 				</v-text-field>
 				<v-text-field
+					v-model="telefone"
 					class="darken-5"
 					clearable
 					label="TELEFONE"
@@ -27,22 +31,16 @@
 				>
 				</v-text-field>
 				<v-text-field
+					v-model="senha"
 					class="darken-5"
 					clearable
-					label="CPF"
-					placeholder="Cpf"
+					label="SENHA"
+					placeholder="Senha"
 					outlined
 				>
 				</v-text-field>
 				<v-text-field
-					class="darken-5"
-					clearable
-					label="E-MAIL"
-					placeholder="E-mail"
-					outlined
-				>
-				</v-text-field>
-				<v-text-field
+					v-model="showReSenha"
 					class="darken-5"
 					clearable
 					label="CONFIRMAR SENHA"
@@ -50,25 +48,8 @@
 					outlined
 				>
 				</v-text-field>
-				<v-file-input
-					v-model="files"
-					class="darken-5"
-					color="blue darken-2"
-					append-outer-icon="mdi-paperclip"
-					prepend-icon
-					label="CERTIFICADOS"
-					multiple
-					placeholder="IMG.Certificados"
-					outlined
-				>
-					<template v-slot:selection="{ index, text }">
-						<v-chip v-if="index < 2" color="blue  darken-4" dark label small
-							>{{ text }}
-						</v-chip>
-					</template>
-				</v-file-input>
 
-				<v-btn block color="success" dark>Cadastrar</v-btn>
+				<v-btn block color="success" @click="cadastrar">Cadastrar</v-btn>
 			</v-container>
 		</v-layout>
 	</v-form>
@@ -77,7 +58,27 @@
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			showSenha: false,
+			showReSenha: false,
+			nome:"",
+			email:"",
+			telefone:"",
+			senha:"",
+			reSenha: "",
+			regras: {
+				obrigatorio: value => !!value || "Campo obrigatório.",
+				mininimo: v => v.length >= 8 || "Mínimo de 8 caractéres.",
+			}
+		};
 	},
+	methods: {
+		confirmarSenha(){
+			return this.senha === this.reSenha || "Senha está diferente.";
+		},
+		cadastrar(){
+			
+		}
+	}
 };
 </script>

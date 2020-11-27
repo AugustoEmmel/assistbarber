@@ -3,13 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
 import * as VueGoogleMaps from "vue2-google-maps";
-import ArrayList from "arraylist";
 import VueGeolocation from "vue-browser-geolocation"
 
 Vue.config.productionTip = false;
 
 Vue.use(VueGeolocation);
-Vue.use(ArrayList);
 Vue.use(VueGoogleMaps, {
 	load: {
 		key: "AIzaSyCHZN97sIF8HSqt237Y9pDW-YNMmd0V5Us",

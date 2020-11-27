@@ -8,29 +8,34 @@
 				</div>
 			</v-card-title>
 			<v-container mt-n2 mb-n3>
-				<v-radio-group v-model="row" row>
-					<v-radio label="Cliente" value="cliente"></v-radio>
-					<v-radio label="Barbeiro" value="barbeiro"> </v-radio>
+				<v-radio-group v-model="formulario" row>
+					<v-radio label="Cliente" value="Cliente"></v-radio>
+					<v-radio label="Barbeiro" value="Barbeiro"> </v-radio>
 				</v-radio-group>
 			</v-container>
 			<v-divider></v-divider>
 			<v-container>
-				<Barbeiro />
+				<component v-bind:is="formulario"></component>
 			</v-container>
 		</v-card>
 	</v-container>
 </template>
 
 <script>
-import Cliente from "./CadastroCliV.vue";
-import Barbeiro from "./CadastroBarbV.vue";
+import Cliente from "../components/CadastroCliV";
+import Barbeiro from "../components/CadastroBarbV";
 export default {
 	components: {
 		Cliente,
 		Barbeiro,
 	},
 	data() {
-		return {};
+		return {
+			formulario: "Cliente"
+		};
 	},
+	computed(){
+		formulario
+	}
 };
 </script>
