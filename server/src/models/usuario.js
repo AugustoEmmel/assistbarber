@@ -9,7 +9,6 @@ const cargos = {
     Cliente: "cliente"
 }
 
-
 const usuarioSchema = new Schema({
     nome:{
         type: String,
@@ -26,11 +25,11 @@ const usuarioSchema = new Schema({
         required: [true, 'Por favor entre uma senha.'],
         minlength: [6, 'Senha curta, entre pelo menos 6 caracteres.']
     },
-    cpf:{
+    /*cpf:{
         type: String,
         required: usuarioBarbeiro,
         validate: [cpf.isValid, 'Por favor entre com um CPF válido.']
-    },
+    },*/
     telefone:{
         type: String,
         required: [true, 'Por favor entre um numero telefônico.'],
@@ -61,5 +60,4 @@ usuarioSchema.pre('save', async function(next){
     next();
 });
 
-const Usuario = mongoose.model('Usuario', usuarioSchema);
-exports.default = Usuario;
+export default mongoose.model('Usuario', usuarioSchema);

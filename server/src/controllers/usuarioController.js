@@ -1,6 +1,4 @@
-'use strict';
-
-import { create } from '../models/usuario';
+import {create} from '../models/usuario';
 
 const trataErros = (err) =>{
   let errors = {email:'', senha:'', telefone:''};
@@ -23,9 +21,9 @@ const trataErros = (err) =>{
 
 //Cria o usuário
 const cadastroPost = async (req, res) =>{
-  const {nome, email, senha, telefone, barbeiro, localizacao} = req.body;
+  const {nome, email, senha, telefone, localizacao, cargo} = req.body;
   try{
-    const usuario = await create({nome, email, senha, telefone, localizacao, barbeiro});
+    const usuario = await create({nome, email, senha, telefone, localizacao, cargo});
     res.status(201).json(usuario);
   }catch(err){
     const errors = trataErros(err);
@@ -39,6 +37,6 @@ const loginPost = async (req, res) =>{
 }
 
 export default {
-  loginPost,
-  cadastroPost
-};
+  cadastroPost,
+  loginPost
+}
