@@ -66,9 +66,7 @@ export default {
 			showSenha: false,
 			showReSenha: false,
 			reSenha:'',
-			usuario:{
-				cargo: 'cliente'
-			},
+			usuario:{},
 			regras: {
 				obrigatorio: value => !!value || "Campo obrigatório.",
 				mininimo: v => v.length >= 8 || "Mínimo de 8 caractéres.",
@@ -79,16 +77,21 @@ export default {
 		confirmarSenha(){
 			return this.senha === this.reSenha || "Senha está diferente.";
 		},
-		created(){
+		pegaCargo(){
 			bus.$on('escolherFormularioCargo', (dados)=>{
 				this.usuario.cargo = dados;
-				console.log(this.cargo);
 			})
 		},
 		cadastrar(){
-			usuario = this.usuario;
-			servicoAutenticacao.cadastrarCliente(usuario)
+			servicoAutenticacao.cadastrarCliente(
+				this.usuario.nome,
+				this.usuario.email,
+				this.usuario.senha,
+				this.usuario.telefone,
+				this.usuario.cargo = 'cliente',
+			);
 		}
 	}
+		
 };
 </script>

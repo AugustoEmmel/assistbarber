@@ -8,8 +8,8 @@
 				</div>
 			</v-card-title>
 			<v-container mt-n2 mb-n3>
-				<v-radio-group v-model="formularioCargo" row>
-					<v-radio label="Cliente" value="Cliente"></v-radio>
+				<v-radio-group v-model="formularioCargo" row @change="escolherFormulario" >
+					<v-radio label="Cliente" value="Cliente" ></v-radio>
 					<v-radio label="Barbeiro" value="Barbeiro"> </v-radio>
 				</v-radio-group>
 			</v-container>
@@ -37,7 +37,8 @@ export default {
 	},
 	methods:{
 		escolherFormulario(){
-			bus.$emit('escolherFormularioCargo', formularioCargo)
+			bus.$emit('escolherFormularioCargo', this.formularioCargo);
+			console.log(this.formularioCargo)
 		}
 	}
 };
