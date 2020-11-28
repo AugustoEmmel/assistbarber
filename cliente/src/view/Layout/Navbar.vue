@@ -9,42 +9,7 @@
 			</v-toolbar-title>
 			<v-spacer></v-spacer>
 			<!--menu logar popup -->
-			<v-menu
-				v-model="menu"
-				:close-on-content-click="false"
-				:nudge-width="200"
-				offset-y
-			>
-				<template v-slot:activator="{ on, attrs }">
-					<v-btn v-bind="attrs" v-on="on" small text class="white">
-						<span>
-							Login
-							<v-icon>mdi-account-key</v-icon>
-						</span>
-					</v-btn>
-				</template>
-
-				<v-card>
-					<span class=" ml-3 ">Login</span>
-					<v-form ref="form" lazy-validation class="pa-3">
-						<v-text-field
-							label="e-mail"
-							placeholder="Ex.: joaobatista@gmail.com"
-							outlined
-						></v-text-field>
-
-						<v-text-field
-							label="Senha"
-							placeholder="senha"
-							v-model="password"
-							outlined
-						></v-text-field>
-						<v-btn color="success" class="mr-4">
-							Entrar
-						</v-btn>
-					</v-form>
-				</v-card>
-			</v-menu>
+			<Login />
 			<!--cadastrar -->
 			<v-btn small text>
 				<span>CADASTRAR-SE</span>
@@ -90,7 +55,11 @@
 </template>
 
 <script>
+import Login from '../../components/LoginV';
 export default {
+	components:{
+		Login
+	},
 	data() {
 		return {
 			nomeUsuario: "",
@@ -143,8 +112,8 @@ export default {
 		//puxa nome usuario do banco
 		
 	},
-	mounted() {
+	/*mounted() {
 		this.getNomeUsuario();
-	},
+	},*/
 };
 </script>

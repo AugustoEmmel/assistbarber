@@ -56,16 +56,20 @@ Vue.component('CadastroCli', [definition])
 </template>
 
 <script>
+import servicoAutenticacao from '../services/servicoAutenticacao';
+import {bus} from '../main';
 export default {
 	data() {
 		return {
 			showSenha: false,
 			showReSenha: false,
-			nome:"",
-			email:"",
-			telefone:"",
-			senha:"",
-			reSenha: "",
+			nome:'',
+			email:'',
+			telefone:'',
+			senha:'',
+			reSenha: '',
+			cargo: '',
+			localizacao: '',
 			regras: {
 				obrigatorio: value => !!value || "Campo obrigatório.",
 				mininimo: v => v.length >= 8 || "Mínimo de 8 caractéres.",
@@ -76,8 +80,26 @@ export default {
 		confirmarSenha(){
 			return this.senha === this.reSenha || "Senha está diferente.";
 		},
-		cadastrar(){
-			
+		created(){
+			bus.$on('escolherFormularioCargo', (dados)=>{
+				this.cargo = dados;
+			})
+		},
+		async cadastrar(){
+			/*console.log(this.nome,
+				this.email, 
+				this.senha, 
+				this.telefone, 
+				this.localizacao = '', 
+				this.cargo);*/
+			await servicoAutenticacao.cadastrarCliente(
+				this.nome,
+				this.email, 
+				this.senha, 
+				this.telefone, 
+				this.localizacao = '', 
+				this.cargo
+			)
 		}
 	}
 };

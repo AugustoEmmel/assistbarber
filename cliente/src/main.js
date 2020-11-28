@@ -26,3 +26,4 @@ let app;
 		}).$mount("#app");
 
 /* eslint-enable */
+export const bus = new Vue();

@@ -6,7 +6,6 @@ import LoginV2 from "../view/LoginV2";
 import HistoricoV from "../view/HistoricoV";
 import RelatorioV from "../view/RelatorioV";
 import About from "../view/About";
-import FormularioV from "../view/FormularioV";
 import AvisoV from "../view/AvisoV";
 import EdPerfilV from "../view/EdPerfilV";
 import PerfilV from "../view/PerfilV";
@@ -56,11 +55,6 @@ const routes = [
 		path: "/about",
 		name: "About",
 		component: About,
-	},
-	{
-		path: "/formulario",
-		name: "FormularioV",
-		component: FormularioV,
 	},
 	{
 		path: "/aviso",

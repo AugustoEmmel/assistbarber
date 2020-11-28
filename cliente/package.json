@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "arraylist": "^0.1.0",
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "firebase": "^7.15.3",
     "firebaseui": "^4.5.1",
