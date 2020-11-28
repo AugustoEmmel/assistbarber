@@ -27,7 +27,7 @@ const usuarioSchema = new Schema({
     },
     cpf:{
         type: String,
-        required: usuarioBarbeiro,
+        required: checarCargoBarbeiro,
         validate: [cpf.isValid, 'Por favor entre com um CPF válido.']
     },
     telefone:{
@@ -37,7 +37,6 @@ const usuarioSchema = new Schema({
     },
     localizacao:{
         type: String,
-        required: usuarioBarbeiro
     },
     cargo: {
         type: String,
@@ -46,7 +45,7 @@ const usuarioSchema = new Schema({
 }, {timestamps: true});
 
 //Verifica se é barbeiro para habilitar CPF
-function usuarioBarbeiro(){
+function checarCargoBarbeiro(){
     if(this.cargo === cargos.Barbeiro){
         return true;
     }else{
