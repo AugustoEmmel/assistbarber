@@ -141,7 +141,6 @@ export default {
 	},
 	methods: {
 		//puxa nome usuario do banco
-		
 	},
 	mounted() {
 		this.getNomeUsuario();

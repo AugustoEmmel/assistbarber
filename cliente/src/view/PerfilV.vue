@@ -4,7 +4,7 @@
 		<v-container>
 			<v-layout row wrap justify-center>
 				<v-flex xs8 sm8 md8 lg8 xl8>
-				<v-card color="red" height="500">		
+			    <v-card color="red" height="500">				
 					<v-card class="pa-3 blue darken-4">
 						<v-container>
 							<v-layout column align-center>
@@ -39,7 +39,7 @@
 								</v-container>
 								
 							</v-layout>
-						</v-container>						
+		                </v-container>
 					</v-card>
 				</v-card>
 				</v-flex>
