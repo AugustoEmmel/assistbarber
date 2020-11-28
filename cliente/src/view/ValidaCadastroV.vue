@@ -10,7 +10,7 @@
 				:key="cadastro.id"
 			>
 				<v-layout row wrap>
-					<v-flex xs3 sm md3>
+					<v-flex xs3 sm4 md3>
 						<div class="caption black--text">Nome</div>
 						<div>{{ cadastro.nome }}</div>
 					</v-flex>

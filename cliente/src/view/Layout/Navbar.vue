@@ -136,6 +136,11 @@ export default {
 					text: "Validar Cadastro",
 					route: "/validacadastro",
 				},
+				{
+					icon: "mdi-account-check",
+					text: "Validar Atendiemento",
+					route: "/atendimento",
+				},
 			],
 		};
 	},
