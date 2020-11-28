@@ -12,6 +12,7 @@ import PerfilV from "../view/PerfilV";
 import ValidaCadastroV from "../view/ValidaCadastroV";
 import ChatV from "../view/ChatV";
 import CadastroV from "../view/CadastroV";
+import AtendimentoV from "../view/AtendimentoV";
 
 Vue.use(VueRouter);
 
@@ -75,6 +76,11 @@ const routes = [
 		path: "/cadastro",
 		name: "CadastroV",
 		component: CadastroV,
+	},
+	{
+		path: "/atendimento",
+		name: "AtendimentoV",
+		component: AtendimentoV,
 	}
 ];
 

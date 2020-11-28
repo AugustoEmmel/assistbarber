@@ -1,7 +1,9 @@
 <template>
 	<v-dialog v-model="dialog" max-width="800" persistent>
 		<template v-slot:activator="{ on, attrs }">
-			<v-btn class="mt-1" v-bind="attrs" v-on="on" small>Agendamento</v-btn>
+			<v-btn block class="mt-5" v-bind="attrs" v-on="on" small
+				>Agendamento</v-btn
+			>
 		</template>
 		<v-card>
 			<v-toolbar dark color="primary">
