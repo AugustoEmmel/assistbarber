@@ -48,6 +48,7 @@
 					label="SENHA"
 					placeholder="Senha"
 					outlined
+					:type="'password'"
 				>
 				</v-text-field>
 				<v-text-field
@@ -56,6 +57,7 @@
 					label="CONFIRMAR SENHA"
 					placeholder="Confirmar Senha"
 					outlined
+					:type="'password'"
 				>
 				</v-text-field>
 				<v-file-input
