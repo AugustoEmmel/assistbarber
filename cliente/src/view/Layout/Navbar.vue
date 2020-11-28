@@ -11,7 +11,7 @@
 			<!--menu logar popup -->
 			<Login />
 			<!--cadastrar -->
-			<v-btn small text>
+			<v-btn small text @click="irCadastro">
 				<span>CADASTRAR-SE</span>
 				<v-icon class="ml-1">mdi-account-plus</v-icon>
 			</v-btn>
@@ -110,7 +110,10 @@ export default {
 	},
 	methods: {
 		//puxa nome usuario do banco
-		
+		//
+		irCadastro(){
+			this.$router.push('/cadastro')
+		}
 	},
 	/*mounted() {
 		this.getNomeUsuario();

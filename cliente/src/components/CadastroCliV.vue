@@ -4,7 +4,7 @@ Vue.component('CadastroCli', [definition])
 		<v-layout row wrap class="pa-3">
 			<v-container>
 				<v-text-field
-					v-model="nome"
+					v-model="usuario.nome"
 					class="darken-5"
 					clearable
 					label="NOME"
@@ -13,7 +13,7 @@ Vue.component('CadastroCli', [definition])
 				>
 				</v-text-field>
 				<v-text-field
-					v-model="email"
+					v-model="usuario.email"
 					class="darken-5"
 					clearable
 					label="E-MAIL"
@@ -22,7 +22,7 @@ Vue.component('CadastroCli', [definition])
 				>
 				</v-text-field>
 				<v-text-field
-					v-model="telefone"
+					v-model="usuario.telefone"
 					class="darken-5"
 					clearable
 					label="TELEFONE"
@@ -31,21 +31,23 @@ Vue.component('CadastroCli', [definition])
 				>
 				</v-text-field>
 				<v-text-field
-					v-model="senha"
+					v-model="usuario.senha"
 					class="darken-5"
 					clearable
 					label="SENHA"
 					placeholder="Senha"
 					outlined
+					:type="'password'"
 				>
 				</v-text-field>
 				<v-text-field
-					v-model="showReSenha"
+					v-model="reSenha"
 					class="darken-5"
 					clearable
 					label="CONFIRMAR SENHA"
 					placeholder="Confirmar Senha"
 					outlined
+					:type="'password'"
 				>
 				</v-text-field>
 
@@ -63,13 +65,10 @@ export default {
 		return {
 			showSenha: false,
 			showReSenha: false,
-			nome:'',
-			email:'',
-			telefone:'',
-			senha:'',
-			reSenha: '',
-			cargo: '',
-			localizacao: '',
+			reSenha:'',
+			usuario:{
+				cargo: 'cliente'
+			},
 			regras: {
 				obrigatorio: value => !!value || "Campo obrigatório.",
 				mininimo: v => v.length >= 8 || "Mínimo de 8 caractéres.",
@@ -82,24 +81,13 @@ export default {
 		},
 		created(){
 			bus.$on('escolherFormularioCargo', (dados)=>{
-				this.cargo = dados;
+				this.usuario.cargo = dados;
+				console.log(this.cargo);
 			})
 		},
-		async cadastrar(){
-			/*console.log(this.nome,
-				this.email, 
-				this.senha, 
-				this.telefone, 
-				this.localizacao = '', 
-				this.cargo);*/
-			await servicoAutenticacao.cadastrarCliente(
-				this.nome,
-				this.email, 
-				this.senha, 
-				this.telefone, 
-				this.localizacao = '', 
-				this.cargo
-			)
+		cadastrar(){
+			usuario = this.usuario;
+			servicoAutenticacao.cadastrarCliente(usuario)
 		}
 	}
 };

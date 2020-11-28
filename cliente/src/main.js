@@ -3,7 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
 import * as VueGoogleMaps from "vue2-google-maps";
-import VueGeolocation from "vue-browser-geolocation"
+import VueGeolocation from "vue-browser-geolocation";
+import dotenv from "dotenv";
+dotenv.config();
 
 Vue.config.productionTip = false;
 

@@ -35,14 +35,13 @@ const usuarioSchema = new Schema({
         required: [true, 'Por favor entre um numero telefônico.'],
         unique: true
     },
-    localizacao:{
-        type: String,
-    },
     cargo: {
         type: String,
         required: true,
     }
-}, {timestamps: true});
+}, {
+    timestamps: true
+});
 
 //Verifica se é barbeiro para habilitar CPF
 function checarCargoBarbeiro(){

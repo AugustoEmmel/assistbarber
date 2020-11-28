@@ -6,7 +6,7 @@ import usuario from './routes/usuarioRotas'; //Autenticacao
 import './helpers/db/mongodb'; //Banco de dados
 
 // Configurando portas
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 3000;
 const app = express();
 // Configurando middlewares
 app.use(cors());
