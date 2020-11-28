@@ -1,8 +1,6 @@
-'use strict';
+import Usuario from '../models/usuario';
 
-import { create } from '../models/usuario';
-
-const trataErros = (err) =>{
+const tratarErros = (err) =>{
   let errors = {email:'', senha:'', telefone:''};
 
   // erro email duplicado
@@ -22,23 +20,25 @@ const trataErros = (err) =>{
 }
 
 //Cria o usuário
-const cadastroPost = async (req, res) =>{
-  const {nome, email, senha, telefone, barbeiro, localizacao} = req.body;
+export const cadastrar = async (req, res) =>{
+  const {nome, email, senha, cpf, telefone, cargo} = req.body;
   try{
-    const usuario = await create({nome, email, senha, telefone, localizacao, barbeiro});
+    const usuario = await Usuario.create({nome, email, senha, cpf, telefone, cargo});
     res.status(201).json(usuario);
   }catch(err){
-    const errors = trataErros(err);
+    const errors = tratarErros(err);
     res.status(400).json({errors});
   }
 }
 
 //Submete o login ao banca para comparar
-const loginPost = async (req, res) =>{
+export const login = async (req, res) =>{
   res.send('login');
 }
 
-export default {
-  loginPost,
-  cadastroPost
-};
+export const getUsuarios = async (req, res) => {
+  Usuario.find(function (err, usuarios) {
+    if (err) return next(err);
+    res.json(usuarios);
+  });
+}
