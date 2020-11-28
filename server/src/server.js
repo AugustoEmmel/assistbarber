@@ -1,20 +1,19 @@
 // Importando modulos necessários
-import cors from "cors"; //cors
-import express from "express"; //Express
-import auth from "./routes/auth.js"; //Autenticacao
-import db from "./helpers/db/mongodb.js"; //Banco de dados
+import './helpers/dotenv/initEnv';
+import cors from 'cors'; //cors
+import express from 'express'; //Express
+import usuario from './routes/usuarioRotas'; //Autenticacao
+import './helpers/db/mongodb'; //Banco de dados
 
-// Inicializando Banco de Dados
-db;
 // Configurando portas
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 3000;
 const app = express();
 // Configurando middlewares
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Defininindo rotas para middleware
-app.use('/routes/auth.js', auth);
+app.use('/usuario', usuario);
 // Escutando Portas
 app.listen(port);
 console.log(`Escutando em http://localhost:${port}/`);

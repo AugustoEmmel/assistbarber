@@ -1,5 +1,5 @@
 <template>
-	<v-form v-model="valid">
+	<v-form>
 		<v-layout row wrap class="pa-3">
 			<v-container class="asd">
 				<v-text-field
@@ -48,6 +48,7 @@
 					label="SENHA"
 					placeholder="Senha"
 					outlined
+					:type="'password'"
 				>
 				</v-text-field>
 				<v-text-field
@@ -56,10 +57,11 @@
 					label="CONFIRMAR SENHA"
 					placeholder="Confirmar Senha"
 					outlined
+					:type="'password'"
 				>
 				</v-text-field>
 				<v-file-input
-					v-model="files"
+					v-model="arquivos"
 					class="darken-5"
 					color="blue darken-2"
 					append-outer-icon="mdi-paperclip"
@@ -85,7 +87,9 @@
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			arquivos:null,
+		};
 	},
 };
 </script>

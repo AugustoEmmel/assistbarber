@@ -1,12 +1,17 @@
 //Importa router express
 import { Router } from 'express';
 //Importa controller
-import authController from '../controllers/authController';
+import {
+    cadastrar, 
+    login,
+    getUsuarios,
+} from '../controllers/usuarioController';
 //Inicializa o router
 const router = Router();
 //Chama as rotas utilizando as funções do controller
-router.post('/cadastro', authController.cadastroPost);
-router.post('/login', authController.loginPost);
+router.route('/cadastro').post(cadastrar);
+router.route('/cadastro').get(getUsuarios);
+router.route('/login').post(login);
 
 //Exporta o router
 export default router;

@@ -9,7 +9,6 @@ const cargos = {
     Cliente: "cliente"
 }
 
-
 const usuarioSchema = new Schema({
     nome:{
         type: String,
@@ -28,7 +27,7 @@ const usuarioSchema = new Schema({
     },
     cpf:{
         type: String,
-        required: usuarioBarbeiro,
+        required: checarCargoBarbeiro,
         validate: [cpf.isValid, 'Por favor entre com um CPF válido.']
     },
     telefone:{
@@ -36,17 +35,16 @@ const usuarioSchema = new Schema({
         required: [true, 'Por favor entre um numero telefônico.'],
         unique: true
     },
-    localizacao:{
-        type: String
-    },
     cargo: {
         type: String,
-        required: true
+        required: true,
     }
-}, {timestamps: true});
+}, {
+    timestamps: true
+});
 
 //Verifica se é barbeiro para habilitar CPF
-function usuarioBarbeiro(){
+function checarCargoBarbeiro(){
     if(this.cargo === cargos.Barbeiro){
         return true;
     }else{
@@ -61,5 +59,4 @@ usuarioSchema.pre('save', async function(next){
     next();
 });
 
-const Usuario = mongoose.model('Usuario', usuarioSchema);
-exports.default = Usuario;
+export default mongoose.model('Usuario', usuarioSchema);
