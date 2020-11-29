@@ -56,6 +56,7 @@ export const login = async (req, res) =>{
 
 export const getUsuarios = async (req, res) => {
   Usuario.find(function (err, usuarios) {
+    
     if (err) return next(err);
     res.json(usuarios);
   });
