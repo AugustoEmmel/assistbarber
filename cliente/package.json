@@ -11,15 +11,12 @@
     "arraylist": "^0.1.0",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
-    "firebase": "^7.15.3",
-    "firebaseui": "^4.5.1",
     "material-design-icons": "^3.0.1",
     "vue": "^2.6.11",
     "vue-browser-geolocation": "^1.8.0",
     "vue-quick-chat": "^1.2.6",
     "vue-router": "^3.2.0",
     "vue2-google-maps": "^0.10.7",
-    "vuefire": "^2.2.2",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {

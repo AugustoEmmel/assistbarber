@@ -8,8 +8,13 @@
 				</div>
 			</v-card-title>
 			<v-container mt-n2 mb-n3>
+<<<<<<< HEAD
 				<v-radio-group row v-model="formularioCargo">
 					<v-radio label="Cliente" value="Cliente"></v-radio>
+=======
+				<v-radio-group v-model="formularioCargo" row>
+					<v-radio label="Cliente" value="Cliente" ></v-radio>
+>>>>>>> 4ddc6a672ec1ea0ba5167eca6d3fbc1b17e04c5e
 					<v-radio label="Barbeiro" value="Barbeiro"> </v-radio>
 				</v-radio-group>
 			</v-container>
@@ -35,11 +40,20 @@ export default {
 		Cliente,
 		Barbeiro,
 	},
+<<<<<<< HEAD
 	methods: {
 		escolherFormulario() {
 			bus.$emit("escolherFormularioCargo", this.formularioCargo);
 			console.log(this.formularioCargo);
 		},
 	},
+=======
+	methods:{
+		/*escolherFormulario(){
+			bus.$emit('escolherFormularioCargo', this.formularioCargo);
+			console.log(this.formularioCargo)
+		}*/
+	}
+>>>>>>> 4ddc6a672ec1ea0ba5167eca6d3fbc1b17e04c5e
 };
 </script>

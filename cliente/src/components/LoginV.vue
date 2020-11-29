@@ -28,8 +28,9 @@
                     placeholder="senha"
                     v-model="senha"
                     outlined
+                    :type="'password'"
                 ></v-text-field>
-                <v-btn color="success" class="mr-4">
+                <v-btn color="success" class="mr-4" @click="login">
                     Entrar
                 </v-btn>
             </v-form>
@@ -38,11 +39,33 @@
 </template>
 
 <script>
+import servicoAutenticacao from '../services/servicoAutenticacao'
 export default {
     data(){
         return{
             email:'',
             senha:''
+        }
+    },
+    methods:{
+        async login(){
+        try {
+            const res = await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: this.email, 
+                    senha: this.senha, 
+                }),
+                headers:{'Content-Type':'application/json'}
+            });
+            const data = await res.json();
+            console.log(data);
+            if(data.usuario){
+                this.$router.push('/mapa');
+            }
+            } catch (error) {
+                console.log(error);  
+            }
         }
     }
 }
