@@ -8,8 +8,8 @@
 				</div>
 			</v-card-title>
 			<v-container mt-n2 mb-n3>
-				<v-radio-group v-model="formularioCargo" row @change="escolherFormulario" >
-					<v-radio label="Cliente" value="Cliente" ></v-radio>
+				<v-radio-group row v-model="formularioCargo">
+					<v-radio label="Cliente" value="Cliente"></v-radio>
 					<v-radio label="Barbeiro" value="Barbeiro"> </v-radio>
 				</v-radio-group>
 			</v-container>
@@ -24,22 +24,22 @@
 <script>
 import Cliente from "../components/CadastroCliV";
 import Barbeiro from "../components/CadastroBarbV";
-import {bus} from "../main";
+import { bus } from "../main";
 export default {
-	data(){
-		return{
-			formularioCargo :"Cliente"
-		}
+	data() {
+		return {
+			formularioCargo: "Cliente",
+		};
 	},
 	components: {
 		Cliente,
 		Barbeiro,
 	},
-	methods:{
-		escolherFormulario(){
-			bus.$emit('escolherFormularioCargo', this.formularioCargo);
-			console.log(this.formularioCargo)
-		}
-	}
+	methods: {
+		escolherFormulario() {
+			bus.$emit("escolherFormularioCargo", this.formularioCargo);
+			console.log(this.formularioCargo);
+		},
+	},
 };
 </script>
