@@ -84,7 +84,6 @@
 </template>
 
 <script>
-import servicoAutenticacao from '../services/servicoAutenticacao';
 export default {
 	data() {
 		return {
@@ -110,7 +109,7 @@ export default {
 			const data = await res.json();
 			console.log(data);
 			if(data._id){
-				this.$router.push('/');
+				this.$router.push('/mapa');
 			}
 			} catch (error) {
 				console.log(error);

@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Principal from "../view/Principal";
+import Mapa from "../view/Mapa";
 import AgendaV from "../view/AgendaV";
-import LoginV2 from "../view/LoginV2";
+import LoginV from "../view/LoginV";
 import HistoricoV from "../view/HistoricoV";
 import RelatorioV from "../view/RelatorioV";
 import About from "../view/About";
@@ -19,8 +19,13 @@ Vue.use(VueRouter);
 const routes = [
 	{
 		path: "/",
-		name: "Principal",
-		component: Principal,
+		name: "LoginV",
+		component: LoginV,
+	},
+	{
+		path: "/mapa",
+		name: "Mapa",
+		component: Mapa,
 	},
 	{
 		path: "/perfil",
@@ -36,11 +41,6 @@ const routes = [
 		path: "/agenda",
 		name: "AgendaV",
 		component: AgendaV,
-	},
-	{
-		path: "/login",
-		name: "LoginV2",
-		component: LoginV2,
 	},
 	{
 		path: "/historico",

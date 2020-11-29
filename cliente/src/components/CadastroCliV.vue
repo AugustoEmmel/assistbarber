@@ -59,7 +59,7 @@ Vue.component('CadastroCli', [definition])
 </template>
 
 <script>
-import servicoAutenticacao from '../services/servicoAutenticacao';
+
 import {bus} from '../main';
 export default {
 	data() {
@@ -84,22 +84,19 @@ export default {
 			})
 		},*/
 		async cadastrar(){
-			try {
+		try {
 			const res = await fetch('http://localhost:5000/cadastro', {
 				method: 'POST',
 				body: JSON.stringify({
-					nome: this.usuario.nome, 
 					email: this.usuario.email, 
 					senha: this.usuario.senha, 
-					telefone: this.usuario.senha, 
-					cargo: this.usuario.cargo = 'cliente'
 				}),
 				headers:{'Content-Type':'application/json'}
 			});
 			const data = await res.json();
 			console.log(data);
 			if(data._id){
-				this.$router.push('/');
+				this.$router.push('/mapa');
 			}
 			} catch (error) {
 				console.log(error);

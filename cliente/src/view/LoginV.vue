@@ -9,12 +9,9 @@
 				width="250px"
 			>
 				<v-card-text>
-					<h5>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda
-						iste ullam, animi possimus, autem ducimus voluptates nulla odit
-						laudantium aut eum illum mollitia non ipsum omnis sit totam
-						accusamus! Assumenda.
-					</h5>
+					<h2 class="text-white">
+						Bem vindo ao AssistBarber! O WEBAPP para atendimento a domícilio!
+					</h2>
 				</v-card-text>
 			</v-card>
 		</v-container>
@@ -24,8 +21,12 @@
 <script>
 //teste
 export default {
-	name: "loginv2",
-	data() {},
+	name: "loginv",
+	data() {
+		return{
+
+		}
+	},
 };
 </script>
 
