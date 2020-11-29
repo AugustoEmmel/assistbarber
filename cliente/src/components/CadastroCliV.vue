@@ -83,14 +83,27 @@ export default {
 				this.usuario.cargo = dados;
 			})
 		},*/
-		cadastrar(){
-			servicoAutenticacao.cadastrarCliente(
-				this.usuario.nome,
-				this.usuario.email,
-				this.usuario.senha,
-				this.usuario.telefone,
-				this.usuario.cargo = 'cliente'
-			)
+		async cadastrar(){
+			try {
+			const res = await fetch('http://localhost:5000/cadastro', {
+				method: 'POST',
+				body: JSON.stringify({
+					nome: this.usuario.nome, 
+					email: this.usuario.email, 
+					senha: this.usuario.senha, 
+					telefone: this.usuario.senha, 
+					cargo: this.usuario.cargo = 'cliente'
+				}),
+				headers:{'Content-Type':'application/json'}
+			});
+			const data = await res.json();
+			console.log(data);
+			if(data._id){
+				this.$router.push('/');
+			}
+			} catch (error) {
+				console.log(error);
+			}
 		}
 	}
 		

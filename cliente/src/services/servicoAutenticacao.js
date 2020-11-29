@@ -12,11 +12,16 @@ class servicoAutenticacao{
                 body: JSON.stringify({nome, email, senha, telefone, cargo}),
                 headers:{'Content-Type':'application/json'}
             });
-            const data = await res.json().data();
+            const data = await res.json();
             console.log(data);
+            if(data._id){
+                const go = await fetch('http://localhost:8080/',{
+                    headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+                    redirect: 'follow'
+                })
+            }
         } catch (error) {
             console.log(error);
-            
         }
     }
 

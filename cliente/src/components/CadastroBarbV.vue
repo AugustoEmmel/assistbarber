@@ -94,14 +94,27 @@ export default {
 	},
 	methods:{
 		async cadastrar(){
-			servicoAutenticacao.cadastrarBarbeiro(
-				this.usuario.nome,
-				this.usuario.email,
-				this.usuario.senha,
-				this.usuario.cpf,
-				this.usuario.telefone,
-				this.usuario.cargo = 'barbeiro'
-			)
+			try {
+			const res = await fetch('http://localhost:5000/cadastro', {
+				method: 'POST',
+				body: JSON.stringify({
+					nome: this.usuario.nome, 
+					email: this.usuario.email, 
+					senha: this.usuario.senha, 
+					telefone: this.usuario.senha, 
+					cpf: this.usuario.cpf,
+					cargo: this.usuario.cargo = 'barbeiro'
+				}),
+				headers:{'Content-Type':'application/json'}
+			});
+			const data = await res.json();
+			console.log(data);
+			if(data._id){
+				this.$router.push('/');
+			}
+			} catch (error) {
+				console.log(error);
+			}
 		}
 	}
 };
