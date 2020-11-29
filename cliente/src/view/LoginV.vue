@@ -8,20 +8,10 @@
 				height="300px"
 				width="250px"
 			>
-<<<<<<< HEAD:cliente/src/view/LoginV2.vue
-				<v-card-text class=" font-weight-medium ">
-					<h5 style="font-size:1.2em">
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda
-						iste ullam, animi possimus, autem ducimus voluptates nulla odit
-						laudantium aut eum illum mollitia non ipsum omnis sit totam
-						accusamus! Assumenda.
-					</h5>
-=======
 				<v-card-text>
 					<h2 class="text-white">
 						Bem vindo ao AssistBarber! O WEBAPP para atendimento a domícilio!
 					</h2>
->>>>>>> 4ddc6a672ec1ea0ba5167eca6d3fbc1b17e04c5e:cliente/src/view/LoginV.vue
 				</v-card-text>
 			</v-card>
 		</v-container>

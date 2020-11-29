@@ -1,6 +1,6 @@
-class servicoAutenticacao{
+/*class servicoAutenticacao{
    
-    /*
+    
     static async cadastrar(nome, email, senha, cpf, telefone, cargo){
         try {
             const res = await fetch('http://localhost:5000/cadastro', {
@@ -19,7 +19,7 @@ class servicoAutenticacao{
         } catch (error) {
             console.log(error);
         }
-    }*/
+    }
 
     static async login(email, senha){
         try {
@@ -37,4 +37,4 @@ class servicoAutenticacao{
     }
 }
 
-export default servicoAutenticacao;
+export default servicoAutenticacao;*/
