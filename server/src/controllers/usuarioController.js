@@ -1,4 +1,5 @@
 import Usuario from '../models/usuario';
+import jwt from 'jsonwebtoken';
 
 const tratarErros = (err) =>{
   let errors = {email:'', senha:'', telefone:''};
@@ -19,11 +20,22 @@ const tratarErros = (err) =>{
   return errors;
 }
 
+const maxAge = 3 * 24 * 60 * 60;
+const createToken = (id) =>{
+  return jwt.sign({id}, process.env.secret, {
+    expiresIn: maxAge
+  })
+}
+
 //Cria o usuário
 export const cadastrar = async (req, res) =>{
   const {nome, email, senha, cpf, telefone, cargo} = req.body;
   try{
     const usuario = await Usuario.create({nome, email, senha, cpf, telefone, cargo});
+    const token = createToken(usuario._id);
+    res.cookie('jwt', token, {
+      httpOnly: true, age: maxAge * 1000
+    });
     res.status(201).json(usuario);
   }catch(err){
     const errors = tratarErros(err);

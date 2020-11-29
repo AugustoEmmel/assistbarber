@@ -38,12 +38,19 @@
 </template>
 
 <script>
+import servicoAutenticacao from '../services/servicoAutenticacao'
 export default {
     data(){
         return{
             email:'',
             senha:''
         }
+    },
+    methods:{
+        login(){
+            servicoAutenticacao.login(this.email, this.senha)
+        }
     }
+
 }
 </script>
