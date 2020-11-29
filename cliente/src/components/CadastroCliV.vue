@@ -48,6 +48,7 @@ Vue.component('CadastroCli', [definition])
 					placeholder="Confirmar Senha"
 					outlined
 					:type="'password'"
+					v-show="false"
 				>
 				</v-text-field>
 
@@ -67,29 +68,29 @@ export default {
 			showReSenha: false,
 			reSenha:'',
 			usuario:{},
-			regras: {
+			/*regras: {
 				obrigatorio: value => !!value || "Campo obrigatório.",
 				mininimo: v => v.length >= 8 || "Mínimo de 8 caractéres.",
-			}
+			}*/
 		};
 	},
 	methods: {
-		confirmarSenha(){
+		/*confirmarSenha(){
 			return this.senha === this.reSenha || "Senha está diferente.";
 		},
 		pegaCargo(){
 			bus.$on('escolherFormularioCargo', (dados)=>{
 				this.usuario.cargo = dados;
 			})
-		},
+		},*/
 		cadastrar(){
 			servicoAutenticacao.cadastrarCliente(
 				this.usuario.nome,
 				this.usuario.email,
 				this.usuario.senha,
 				this.usuario.telefone,
-				this.usuario.cargo = 'cliente',
-			);
+				this.usuario.cargo = 'cliente'
+			)
 		}
 	}
 		
