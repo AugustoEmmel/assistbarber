@@ -23,37 +23,37 @@ const routes = [
 		component: LoginV,
 	},
 	{
-		path: "/mapa",
+		path: "/mapa/:id",
 		name: "Mapa",
 		component: Mapa,
 	},
 	{
-		path: "/perfil",
+		path: "/perfil/:id",
 		name: "PerfilV",
 		component: PerfilV,
 	},
 	{
-		path: "/edperfil",
+		path: "/edperfil/:id",
 		name: "EdPerfilV",
 		component: EdPerfilV,
 	},
 	{
-		path: "/agenda",
+		path: "/agenda/:id",
 		name: "AgendaV",
 		component: AgendaV,
 	},
 	{
-		path: "/historico",
+		path: "/historico/:id",
 		name: "HistoricoV",
 		component: HistoricoV,
 	},
 	{
-		path: "/relatorio",
+		path: "/relatorio/:id",
 		name: "RelatorioV",
 		component: RelatorioV,
 	},
 	{
-		path: "/about",
+		path: "/about/:id",
 		name: "About",
 		component: About,
 	},
@@ -68,7 +68,7 @@ const routes = [
 		component: ValidaCadastroV,
 	},
 	{
-		path: "/chat",
+		path: "/chat/:id",
 		name: "ChatV",
 		component: ChatV,
 	},
@@ -78,7 +78,7 @@ const routes = [
 		component: CadastroV,
 	},
 	{
-		path: "/atendimento",
+		path: "/atendimento/:id",
 		name: "AtendimentoV",
 		component: AtendimentoV,
 	}

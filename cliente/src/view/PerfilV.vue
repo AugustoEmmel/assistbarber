@@ -25,14 +25,14 @@
 									height="35"
 									scroll-target="#hide-on-scroll-example">
 										<v-btn
-											color="blue darken-4"text>
+											color="blue darken-4">
 											serviços
 											
 										</v-btn>
-										<v-btn color="blue darken-4"text>
+										<v-btn color="blue darken-4">
 											sobre
 										</v-btn>
-      									<v-btn color="blue darken-4"text>
+      									<v-btn color="blue darken-4">
        										 avaliação
      									 </v-btn>
    									 </v-bottom-navigation>

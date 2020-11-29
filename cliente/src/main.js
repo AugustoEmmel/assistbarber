@@ -15,17 +15,15 @@ Vue.use(VueGoogleMaps, {
 		key: "AIzaSyCHZN97sIF8HSqt237Y9pDW-YNMmd0V5Us",
 		libraries: "places", // necessary for places input
 	},
+	autobindAllEvents: false,
 	installComponents: true
 });
 
 let app;
-/* eslint-disable */
 	if (!app)
 		new Vue({
 			router,
 			vuetify,
 			render: (h) => h(App),
 		}).$mount("#app");
-
-/* eslint-enable */
 export const bus = new Vue();
