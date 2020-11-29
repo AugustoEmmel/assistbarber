@@ -8,6 +8,8 @@
 <script>
 //teste
 import { Agendamento } from "../view/Agendamento";
+import { Loader } from "@googlemaps/js-api-loader";
+
 export default {
 	name: "mapa",
 	data() {
@@ -18,7 +20,7 @@ export default {
 			},
 		};
 	},
-	mounted() {
+	async mounted() {
 		this.getLocalizacao();
 	},
 
