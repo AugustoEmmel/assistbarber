@@ -45,7 +45,13 @@ export const cadastrar = async (req, res) =>{
 
 //Submete o login ao banca para comparar
 export const login = async (req, res) =>{
-  res.send('login');
+  const {email, senha} = req.body;
+  try{
+    const usuario = await Usuario.login(email, senha);
+    res.status(201).json({usuario: usuario._id});
+  }catch(err){
+    res.status(400).json({});
+  }
 }
 
 export const getUsuarios = async (req, res) => {
