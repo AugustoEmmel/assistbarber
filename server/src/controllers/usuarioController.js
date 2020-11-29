@@ -56,8 +56,18 @@ export const login = async (req, res) =>{
 
 export const getUsuarios = async (req, res) => {
   Usuario.find(function (err, usuarios) {
-    
     if (err) return next(err);
     res.json(usuarios);
   });
+}
+
+export const getUsuario = async (req, res) =>{
+  const {email} = req.body;
+  try{
+    const usuario = await Usuario.getUsuario(email);
+    res.status(201).json({usuario: usuario});
+  }catch(err){
+    res.status(400).json({});
+    console.log(err);
+  }
 }

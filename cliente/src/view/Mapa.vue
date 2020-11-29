@@ -9,6 +9,12 @@
 			:options="options"
 			style="height: 100vh; width: 100vw"
 		>
+		<GmapMarker
+			:key="index"
+			:position="coordenadas"
+			:clickable="true"
+			@click="center=coordenadas"
+		/>
 		</GmapMap>
 		<br />
 	</v-container>

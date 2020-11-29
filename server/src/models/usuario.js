@@ -71,4 +71,13 @@ usuarioSchema.statics.login = async function(email, senha){
     throw Error('Email incorreto');
 }
 
+//método estático de pegar id
+usuarioSchema.statics.getUsuario = async function(email){
+    const usuario = await this.findOne({ email });
+    if(usuario){
+        return usuario;
+    }
+    throw Error('Usuário não existe.');
+}
+
 export default mongoose.model('Usuario', usuarioSchema);
