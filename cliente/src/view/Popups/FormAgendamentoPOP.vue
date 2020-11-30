@@ -1,10 +1,13 @@
 <template>
-  <v-dialog v-model="dialog" max-width="500">
+  <v-dialog v-model="dialog" max-width="550">
     <template v-slot:activator="{ on, attrs }">
-      <v-btn fab class="mt-5 mb-n5" v-bind="attrs" v-on="on" small> </v-btn>
+      <v-btn fab class="" v-bind="attrs" v-on="on" small>
+        <v-icon>mdi-calendar-plus</v-icon></v-btn
+      >
     </template>
-    <v-card
-      ><v-toolbar dark color="primary">
+    <v-card>
+      <v-toolbar dark color="primary">
+        <v-spacer></v-spacer>
         <v-toolbar-title>Agendamento</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon dark @click="dialog = false">
@@ -24,13 +27,7 @@
                 required
               >
               </v-text-field>
-              <v-text-field
-                label="E-mail"
-                v-model="email"
-                :rules="emailRules"
-                required
-              >
-              </v-text-field>
+
               <v-text-field
                 label="Endereço"
                 v-model="endereco"
@@ -39,6 +36,38 @@
                 oulined
               >
               </v-text-field>
+              <!--fim dos forms -->
+              <!-- date -->
+              <v-dialog
+                ref="dialog"
+                v-model="modal"
+                :return-value.sync="date"
+                width="290px"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-text-field
+                    v-model="date"
+                    label="Picker in dialog"
+                    prepend-icon="mdi-calendar"
+                    readonly
+                    v-bind="attrs"
+                    v-on="on"
+                    required
+                  ></v-text-field>
+                </template>
+                <v-date-picker v-model="date" scrollable>
+                  <v-spacer></v-spacer>
+                  <v-btn text color="primary" @click="modal = false">
+                    Cancel
+                  </v-btn>
+                  <v-btn text color="primary" @click="$refs.dialog.save(date)">
+                    OK
+                  </v-btn>
+                </v-date-picker>
+              </v-dialog>
+              <!-- fim date -->
+              <!-- hora -->
+
               <v-btn @click="submit" :disabled="!valid">
                 submit
               </v-btn>
@@ -56,24 +85,18 @@
 <script>
 export default {
   data: () => ({
+    modal: false,
     valid: true,
     dialog: false,
     name: "",
-
     endereco: "",
-    data: "",
-    hora: "",
+    date: "",
+
     nameRules: [
       (v) => !!v || "Name is required",
       (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
     ],
-    email: "",
-    emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) =>
-        /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/.test(v) ||
-        "E-mail must be valid",
-    ],
+
     enderecoRules: [(v) => !!v || "endereço is required"],
   }),
 
@@ -83,7 +106,9 @@ export default {
         // Native form submission is not yet supported
         axios.post("/api/submit", {
           name: this.name,
-          email: this.email,
+
+          email: this.endereco,
+          date: this.date,
         });
       }
     },
