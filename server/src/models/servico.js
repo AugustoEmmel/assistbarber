@@ -14,6 +14,10 @@ const servicoSchema = new Schema({
         type: Number,
         required: [true, 'Insira o preço do serviço.']
     },
+    email:{
+        type: Number,
+        required: [true]
+    }
 }, {timestamps: true});
 
 const Servico =  mongoose.model('Servico', servicoSchema);
