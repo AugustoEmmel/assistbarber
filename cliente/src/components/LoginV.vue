@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import servicoAutenticacao from '../services/servicoAutenticacao'
+
 export default {
     data(){
         return{
